@@ -1,18 +1,30 @@
 package EGUserInterface;
 
 import javax.swing.*;
+
+import EGBusinessLogic.EGGenoAlimento;
+import EGBusinessLogic.EGX;
+import EGBusinessLogic.EGXX;
+import EGBusinessLogic.EGXY;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class EGFormularioEcuAnt {
+public class EGFormularioEcuAnt extends JFrame {
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("EcuAnt 2k24");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 600);
-        frame.setLayout(new BorderLayout());
+    public EGFormularioEcuAnt(){
+        customerControls();
+       
+
+    }
+    private void customerControls() {
+        
+        setTitle("EcuAnt 2k24");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 600);
+        setLayout(new BorderLayout());
 
         // Panel superior con la imagen y el título
         JPanel topPanel = new JPanel(new BorderLayout());
@@ -30,15 +42,15 @@ public class EGFormularioEcuAnt {
 
         // Panel para los combos
         JPanel comboPanel = new JPanel();
-        String[] genoOptions = {"X", "XX", "XY"};
-        JComboBox<String> genoCombo = new JComboBox<>(genoOptions);
+        // String[] genoOptions = {"X", "XX", "XY"};
+        //JComboBox<String> genoCombo = new JComboBox<>(genoOptions);
 // ================================================
-        // ArrayList<GenoAlimento> lstAlimento = new ArrayList<>();
-        // lstAlimento.add(new X());
-        // lstAlimento.add(new XX());
-        // lstAlimento.add(new XY());
+        ArrayList<EGGenoAlimento> lstGenoAlimento = new ArrayList<>();
+        lstGenoAlimento.add(new EGX());
+        lstGenoAlimento.add(new EGXX());
+        lstGenoAlimento.add(new EGXY());
         
-        // JComboBox<GenoAlimento> genoCombo = new JComboBox<>(lstAlimento.toArray(new GenoAlimento[0]));
+        JComboBox<EGGenoAlimento> genoCombo = new JComboBox<>(lstGenoAlimento.toArray(new EGGenoAlimento[0]));
         // genoCombo.addActionListener(new ActionListener() {
         //    @Override
         //    public void actionPerformed(ActionEvent e) {
@@ -89,12 +101,12 @@ public class EGFormularioEcuAnt {
          statusBar.add(nameLabel);
          
          // Añadir los paneles al frame principal
-         frame.add(topPanel, BorderLayout.NORTH); // Panel superior con la imagen y el título
-         frame.add(mainPanel, BorderLayout.CENTER); // Panel con la tabla, combos y botones
-         frame.add(statusBar, BorderLayout.PAGE_END); // Barra de estado al final
+         add(topPanel, BorderLayout.NORTH); // Panel superior con la imagen y el título
+         add(mainPanel, BorderLayout.CENTER); // Panel con la tabla, combos y botones
+         add(statusBar, BorderLayout.PAGE_END); // Barra de estado al final
          
          // Mostrar la ventana
          
-         frame.setVisible(true);
+         setVisible(true);
    }
 }
