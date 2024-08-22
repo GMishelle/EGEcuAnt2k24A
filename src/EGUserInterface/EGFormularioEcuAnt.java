@@ -16,7 +16,7 @@ public class EGFormularioEcuAnt {
 
         // Panel superior con la imagen y el título
         JPanel topPanel = new JPanel(new BorderLayout());
-        JLabel imgLabel = new JLabel(new ImageIcon("src\\UserInterface\\Resource\\Img\\Logo.png"));
+        JLabel imgLabel = new JLabel(new ImageIcon("src\\EGUserInterface\\EGResources\\logo1.png"));
         JLabel titleLabel = new JLabel("Homiguero Virtual", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
         topPanel.add(imgLabel, BorderLayout.NORTH);
